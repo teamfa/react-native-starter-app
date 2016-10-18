@@ -2,7 +2,7 @@
 
 This is light weight starting point for building a React Native app. It show cases [Redux](https://github.com/reactjs/redux), navigation using
 NavigationExperimental (via [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)) and [offline storage](https://github.com/rt2zz/redux-persist).
-It also includes [redux-thunk](https://github.com/gaearon/redux-thunk) for async Redux actions but does not show usecase examples.
+It also includes [redux-thunk](https://github.com/gaearon/redux-thunk) middleware for async Redux actions but does not example this.
 
 The app is a basic counter with offline storage & has an example of navigation.
 
@@ -38,18 +38,18 @@ Modules with the following code blocks are now provided as "global" like compone
 ### Navigation
 
 Navigating in an app is bread and butter stuff. NavigationExperimental is currently under heavy development so using it isn't wise... However it is much more performant and
-Redux compared to the current stable navigation methods.
+Redux like compared to the current stable navigation methods.
 
-The library [react-native-router-flux](https://github.com/aksonov/react-native-router-flux) uses it's own stable fork of NavigationExperimental and works behind the scenes with a Flux/Redux
-like setup. It also provides handy Action functions which make navigation a breeze. See the `src/scenes.js` & `scenes/` file/directory for how it's been implemented here.
+The library [react-native-router-flux](https://github.com/aksonov/react-native-router-flux) uses it's own stable fork of NavigationExperimental and works behind the scenes with a Flux setup.
+ It also provides handy Action functions which make navigation a breeze. See the `src/scenes.js` & `scenes/` file/directory for how it's been implemented here.
 
 #### Custom Toolbar/Navigation Bar
 
 By default the library provides a "native" like Toolbar, which uses the Scenes `key` as the title and provides native "back" functionality. This is great for a basic app, but more complex and UI heavy
 apps will want this to be custom. The [docs do mention it](https://github.com/aksonov/react-native-router-flux/blob/master/docs/OTHER_INFO.md#custom-nav-bar-for-individual-scene-or-even-different-state-of-scene-new-feature)
-but it's not too clear. You need to provide a component to a `renderNavigationBar` method on your scene component, like so:
+but it's not too clear. Your scene component needs to provide a static `renderNavigationBar` method, like so:
 
-```
+```javascript
 class MyScene extends Component {
 
    static renderNavigationBar() {
