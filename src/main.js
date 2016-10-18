@@ -19,7 +19,7 @@ function bootstrap() {
       };
     }
 
-    componentWillMount() {
+    componentDidMount() {
       setup(store => {
         this.setState({
           isLoading: false,
