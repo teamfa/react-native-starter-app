@@ -1,18 +1,18 @@
 /**
-* @providesModule CounterActions
-* @flow
-*/
+ * @providesModule CounterActions
+ * @flow
+ */
 
-export const COUNTER_ADD = 'COUNTER_ADD';
-export const COUNTER_SUBTRACT = 'COUNTER_SUBTRACT';
+export const COUNTER_ADD: string = 'COUNTER_ADD';
+export const COUNTER_SUBTRACT: string = 'COUNTER_SUBTRACT';
 
-export function add(count = 1) {
+export function add(count: number = 1): Object {
   return {
     type: COUNTER_ADD, count,
   };
 }
 
-export function subtract(count = 1) {
+export function subtract(count: number = 1): Object {
   return {
     type: COUNTER_SUBTRACT, count,
   };

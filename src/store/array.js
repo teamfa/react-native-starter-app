@@ -1,4 +1,7 @@
-export default () => next => action =>
-  Array.isArray(action)
-    ? action.map(next)
-    : next(action);
+export default () => {
+  return (next) => {
+    return (action) => {
+      return Array.isArray(action) ? action.map(next) : next(action);
+    };
+  };
+};

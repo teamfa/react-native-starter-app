@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
 import { TouchableHighlight, Text } from 'react-native';
 import styles from './styles';
 
-function Button({ onPress, children }) {
+function Button({ onPress, children }: { onPress: () => void, children?: string }) {
   return (
     <TouchableHighlight
       onPress={onPress}
