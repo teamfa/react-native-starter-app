@@ -11,7 +11,12 @@ import { Actions } from 'react-native-router-flux';
 import { add, subtract } from 'CounterActions';
 import Button from 'Button';
 
-function Home({ count, dispatch }) {
+type Props = {
+  count: number,
+  dispatch: () => void,
+};
+
+function Home({ count, dispatch }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
@@ -24,7 +29,7 @@ function Home({ count, dispatch }) {
       </View>
       <View>
         <Button onPress={Actions.child}>
-          Go to child scene
+          Go to child scene...
         </Button>
       </View>
     </View>

@@ -9,7 +9,7 @@
   ],
   "env": {
     "es6": true,
-    "jasmine": true,
+    "jasmine": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -24,11 +24,9 @@
     "max-len": 0,
     "no-console": 0,
     "global-require": 0,
-
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/no-extraneous-dependencies": 0,
-
     "react/jsx-filename-extension": 0
   },
   "globals": {

@@ -3,11 +3,16 @@
  * @flow
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { TouchableHighlight, Text } from 'react-native';
 import styles from './styles';
 
-function Button({ onPress, children }: { onPress: () => void, children?: string }) {
+type Props = {
+  onPress: () => void,
+  children?: string,
+}
+
+function Button({ onPress, children }: Props) {
   return (
     <TouchableHighlight
       onPress={onPress}
@@ -19,10 +24,5 @@ function Button({ onPress, children }: { onPress: () => void, children?: string 
     </TouchableHighlight>
   );
 }
-
-Button.propTypes = {
-  onPress: PropTypes.func,
-  children: PropTypes.string.isRequired,
-};
 
 export default Button;
