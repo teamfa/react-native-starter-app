@@ -19,14 +19,17 @@ export default function setup(done) {
     duration: true,
   });
 
-  // Setup redux middleware
-  const middleware = compose(composeWithDevTools(...[
-    autoRehydrate(),
-    isDev ? applyMiddleware(require('redux-immutable-state-invariant')()) : null,
-    applyMiddleware(...[thunk, promise, array, logger]),
-  ]));
 
-  const store = createStore(reducers, {}, middleware);
+  const middleware = [
+    autoRehydrate(),
+    applyMiddleware(...[thunk, promise, array, logger]),
+  ];
+
+  if (isDev) {
+    middleware.push(applyMiddleware(require('redux-immutable-state-invariant')()));
+  }
+
+  const store = createStore(reducers, {}, compose(...middleware));
 
   // Attach the store to the Chrome debug window
   if (global.isDebuggingInChrome) {
